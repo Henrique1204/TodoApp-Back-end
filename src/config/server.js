@@ -7,10 +7,14 @@ const bodyParse = require("body-parser");
 const express = require("express");
 // Criando o servidor.
 const server = express();
+// Importando o middleware para permitir o cors.
+const allowCors = require("./cors.js");
 
-// Criando middleware para recebimento de dados via url e json.
+// Utilizando middleware para recebimento de dados via url e json.
 server.use(bodyParse.urlencoded({ extended: true }));
 server.use(bodyParse.json());
+// Utilizando middleware para permissão do cors.
+server.use(allowCors);
 
 // Iniciando o servirdor.
 server.listen(port, () => console.log(`Servidor escutando a porta ${port}`));
