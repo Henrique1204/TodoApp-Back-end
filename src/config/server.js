@@ -14,3 +14,5 @@ server.use(bodyParse.json());
 
 // Iniciando o servirdor.
 server.listen(port, () => console.log(`Servidor escutando a porta ${port}`));
+
+module.exports = server;
